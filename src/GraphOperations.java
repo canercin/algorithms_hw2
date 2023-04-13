@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -42,4 +43,18 @@ public class GraphOperations {
             System.out.println();
         }
     }
+
+    public void deepFirstSearch(int id, Node[] nodeHeads){
+        Node currentNode = nodeHeads[id];
+        currentNode.color = Color.gray;
+        System.out.printf("%d ", currentNode.id);
+        while (currentNode.nextNode != null){
+            currentNode = currentNode.nextNode;
+            if(nodeHeads[currentNode.id].color == Color.white){
+                deepFirstSearch(currentNode.id, nodeHeads);
+            }
+        }
+        nodeHeads[id].color = Color.black;
+    }
+
 }

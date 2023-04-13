@@ -11,6 +11,10 @@ public class Main {
         Node[] nodeHeads = new Node[numberOfNodes];
         graphOperator.graphCreator(nodeHeads, adjacencyMatrix);
         graphOperator.printGraph(nodeHeads);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Başlangıç düğümün numarasını giriniz: ");
+        int nodeId = scanner.nextInt();
+        graphOperator.deepFirstSearch(nodeId,nodeHeads);
     }
     public static int getNumberOfNodes(File graf) throws FileNotFoundException {
         Scanner reader = new Scanner(graf);
